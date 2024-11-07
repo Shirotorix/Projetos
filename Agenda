@@ -1,1 +1,60 @@
+agenda = {}
 
+def mostrar_contatos():
+    for contato in agenda:
+        buscando_contato(contato)
+
+def buscando_contato(contato):
+    print('Nome:', contato)
+    print('Telefone: ', agenda[contato]['telefone'])
+    print('Email: ', agenda[contato]['Email'])
+    print('Endereço: ', agenda[contato]['Endereco'])
+    print('------------------')
+
+def incluir_editar_contato(contato, telefone, email, endereco):
+    agenda[contato] = {
+        "Endereco": endereco,
+        "Email" : email,
+        "telefone": telefone,
+    }
+    print(f'>>> Contato {contato} adicionado/editado com Sucesso!')
+
+def remover_contato(contato):
+    del agenda[contato]
+# def remover_contato(contato):
+#     agenda.pop(contato)
+
+def imprimir_menu():
+    print('1 - Mostrar todos os contatos!')
+    print('2 - Buscar algum contato!')
+    print('3 - Adicionar contato!')
+    print('4 - Editar contato!')
+    print('5 - Remover algum contato!')
+    print('0 - Sair!')
+
+imprimir_menu()
+
+opcao = input('Digite uma das opções: ')
+
+if opcao == '1':
+    mostrar_contatos()
+elif opcao == '2':
+    contato = input("Digite o nome do contato: ")
+    buscando_contato(contato)
+elif opcao == '3' or opcao == '4':
+    contato = input('Digite o nome do contato: ')
+    telefone = input('Digire o numero de telefone: ')
+    email = input('Digite o Email do contato: ')
+    endereco = input('Digite o endereço do contato: ')
+    incluir_editar_contato(contato, telefone, email, endereco)
+elif opcao == '4':
+    incluir_editar_contato(contato, telefone, email, endereco)
+elif opcao == '5':
+    contato = input('Digite o contato que deseja excluir: ')
+    remover_contato(contato)
+else:
+    print('DIGITE UM DOS NUMEROS LISTADOS!')
+        
+            
+
+imprimir_menu()
