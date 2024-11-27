@@ -22,9 +22,9 @@ def buscar_contato(contato) :
         print(error)   
 
 def ler_detalhes_contato() :
-    telefone = input("Digite o telefone do Contato")
-    email = input("Digite o email do Contato")
-    endereco = input("Digite o endereço do Contato")
+    telefone = input("Digite o telefone do Contato: ")
+    email = input("Digite o email do Contato: ")
+    endereco = input("Digite o endereço do Contato: ")
     return telefone,email,endereco
     
 def incluir_editar_contato(contato,telefone,email,endereco):    
@@ -63,8 +63,7 @@ def exportar_contatos(nome_do_arquivo):
     except Exception as error:
         print("algum erro ocorreu")
         print(error)
-        
-        
+              
 def importar_contatos(nome_do_arquivo):
     try :
         with open(nome_do_arquivo, "r") as arquivo:
@@ -85,7 +84,6 @@ def importar_contatos(nome_do_arquivo):
         
 def save():
     exportar_contatos("database.csv")
-    
     
 def load():
     try :
@@ -110,10 +108,7 @@ def load():
         print(error)
         print("algum erro inesperado ocorreu")
     except FileNotFoundError :
-        print("arquivo não encontrado")
-                
-                
-        
+        print("arquivo não encontrado")        
 
 def imprimir_menu ():
     print("-------------------------------------------")
@@ -143,10 +138,10 @@ while True :
     if Opcao == "1" :
         mostrar_contatos()
     elif Opcao =="2" :
-        contato = input("Digite o nome do contato")
+        contato = input("Digite o nome do contato: ")
         buscar_contato(contato)
     elif Opcao == "3":
-        contato = input("Digite o nome do Contato")
+        contato = input("Digite o nome do Contato: ")
         try :
             agenda[contato]
             print(">>>>>> Contato já existente")
@@ -154,7 +149,7 @@ while True :
             telefone,email,endereco = ler_detalhes_contato()  
             incluir_editar_contato(contato,telefone,email, endereco)
     elif Opcao == "4":
-        contato = input("Digite o nome do Contato")
+        contato = input("Digite o nome do Contato: ")
         try :
             agenda[contato]
             print(">>>>>> Editando Contato ", contato)
@@ -164,7 +159,7 @@ while True :
             print(">>>>>>>>>>>>contato não existe")   
                 
     elif Opcao == "5" : 
-        contato = input("Digite o nome do contato")
+        contato = input("Digite o nome do contato: ")
         excluir_contato(contato)
     elif Opcao == "6":
         nome_do_arquivo = input("digite o nome do arquivo a ser exportado: ")
