@@ -32,29 +32,38 @@ def imprimir_menu():
     print('5 - Remover algum contato!')
     print('0 - Sair!')
 
-imprimir_menu()
+while True:
+    imprimir_menu()
+    print("------------------")
 
-opcao = input('Digite uma das opções: ')
+    opcao = input('Digite uma das opções: ').upper()
 
-if opcao == '1':
-    mostrar_contatos()
-elif opcao == '2':
-    contato = input("Digite o nome do contato: ")
-    buscando_contato(contato)
-elif opcao == '3' or opcao == '4':
-    contato = input('Digite o nome do contato: ')
-    telefone = input('Digire o numero de telefone: ')
-    email = input('Digite o Email do contato: ')
-    endereco = input('Digite o endereço do contato: ')
-    incluir_editar_contato(contato, telefone, email, endereco)
-elif opcao == '4':
-    incluir_editar_contato(contato, telefone, email, endereco)
-elif opcao == '5':
-    contato = input('Digite o contato que deseja excluir: ')
-    remover_contato(contato)
-else:
-    print('DIGITE UM DOS NUMEROS LISTADOS!')
+    if opcao == '1':
+        mostrar_contatos()
+    elif opcao == '2':
+            contato = input("Digite o nome do contato: ")
+            if contato not in agenda:
+                print("Esse contato não existe ainda!")
+            else:
+                buscando_contato(contato)
+    elif opcao == '3' or opcao == '4':
+        contato = input('Digite o nome do contato: ')
+        telefone = input('Digire o numero de telefone: ')
+        email = input('Digite o Email do contato: ')
+        endereco = input('Digite o endereço do contato: ')
+        incluir_editar_contato(contato, telefone, email, endereco)
+    elif opcao == '4':
+        incluir_editar_contato(contato, telefone, email, endereco)
+    elif opcao == '5':
+        contato = input('Digite o contato que deseja excluir: ')
+        if contato not in agenda:
+            print("Contato não está na Agenda!")
+        else:
+            remover_contato(contato)
+    elif opcao == '0':
+        print("Saindo da Agenda!!!")
+        opcao = False
+        break
+    else:
+        print('DIGITE UM DOS NUMEROS LISTADOS!')
         
-            
-
-imprimir_menu()
