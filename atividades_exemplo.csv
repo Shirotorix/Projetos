@@ -1,0 +1,7 @@
+data,equipe,projeto,horas,status,descricao
+2026-02-16,Backend,Portal,4.5,Concluído,Ajuste de autenticação
+2026-02-17,Frontend,Portal,3.0,Concluído,Corrigir layout do dashboard
+2026-02-18,Dados,BI,5.0,Em andamento,Criar pipeline de importação
+2026-02-19,Backend,API,2.5,Concluído,Refatorar endpoint de usuários
+2026-02-21,Frontend,Portal,1.5,Concluído,Melhorias visuais no gráfico
+2026-02-23,Backend,Portal,6.0,Concluído,Preparação para próxima sprint
